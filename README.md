@@ -13,3 +13,9 @@ LintCode 127 Topological Sorting
     (1) get indegree map of graph
     (2) get startNodes of topological sort
     (3) use bfs get full order
+
+Leetcode200 Number of Islands
+    (1) once visited, value of node should be flipped
+    (2) check boundary eveny time
+    BFS: create new Class Coordinate(x, y)
+    DFS: much easier for this problem
