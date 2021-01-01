@@ -19,3 +19,7 @@ Leetcode200 Number of Islands
     (2) check boundary eveny time
     BFS: create new Class Coordinate(x, y)
     DFS: much easier for this problem
+
+
+Leetcode300 Longest Increasing Subsequence
+    (1) sequence可以不连续，但是subarray必须连续
