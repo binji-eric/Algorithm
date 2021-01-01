@@ -1,7 +1,7 @@
 class Solution {
     
     // the original answer
-    /*
+    
     public int minPathSum(int[][] grid) {
         int m = grid.length, n = grid[0].length;
         int[][] dp = new int[m][n];
@@ -19,7 +19,7 @@ class Solution {
         }
         return dp[m-1][n-1];
     }
-    */
+    
     
     // reduce the size of dp array from O(n^2) to O(n)
      public int minPathSum(int[][] grid) {

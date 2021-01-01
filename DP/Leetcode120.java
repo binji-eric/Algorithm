@@ -29,7 +29,6 @@ class Solution {
 
 
 // dp(from bottom to top), time complexity is O(n^2)
-/*
 class Solution {
     public int minimumTotal(List<List<Integer>> triangle) {
        int m = triangle.size(), n = triangle.get(m-1).size();
@@ -45,9 +44,9 @@ class Solution {
         return dp[0][0];
     }  
 }
-*/
 
-/*
+
+
 // divide and conquer + memo, time complexity is O(n^2)
 class Solution {
     private int[][] memo;
@@ -72,8 +71,7 @@ class Solution {
         return memo[row][col];
     }
 }
-*/
-/*
+
 // dfs(Time Limit Exceeded), time complexity is 2^n
 class Solution {
     private int minPath = Integer.MAX_VALUE;
@@ -91,4 +89,3 @@ class Solution {
         helper(triangle, row+1, col+1, triangle.get(row).get(col) + sum);
     }
 }
-*/
