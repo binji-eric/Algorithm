@@ -23,3 +23,8 @@ Leetcode200 Number of Islands
 
 Leetcode300 Longest Increasing Subsequence
     (1) sequence可以不连续，但是subarray必须连续
+
+Leetcode146 LRU Cache
+    Node {kye, value, pre, next}
+    HashMap keeps track of key and Node
+    Least Visited Node is at the tail
