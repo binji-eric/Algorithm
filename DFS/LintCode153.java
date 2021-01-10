@@ -35,7 +35,6 @@ public class Solution {
             // 防止重复，如果相邻的相等，不允许跳过取值
             // 比如a1a2a3, 需要两个a，只取a1a2, a1a3, a2a3不符合条件
             // 假设nums=[2,2,2], target = 4, 
-            
             // startIndex = 0, i = 0 -> startIndex = 1, i = 1, -> startIndex = 2, 将(a1a2)加入res
             //                                          i = 2,  continie, skip(a1a3)
             //                 i = 1, continue, skip(a2a3)
