@@ -64,6 +64,7 @@ var deserialize = function(data) {
                 list[index].right = temp;
             list.push(temp);
         }
+        // 每当左右节点各遍历一次后，index++
         if(!isLeft) {
             index++;
         }

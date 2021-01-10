@@ -1,6 +1,8 @@
 /**
- * descriptiont: Given a knight in a chessboard (a binary matrix with 0 as empty and 1 as barrier) with a source position, find the shortest path to a destination position, return the length of the route.
-Return -1 if destination cannot be reached.
+ * descriptiont: Given a knight in a chessboard 
+ * (a binary matrix with 0 as empty and 1 as barrier) with a source position, 
+ * find the shortest path to a destination position, return the length of the route.
+ * Return -1 if destination cannot be reached.
 
     https://www.jiuzhang.com/solutions/knight-shortest-path/
  */
@@ -53,7 +55,7 @@ public class Solution {
                 if (distance.containsKey(adjX * m + adjY)) {
                     continue;
                 }
-                
+                // 下一步棋子的cost，并且将位置放置到队列中
                 distance.put(adjX * m + adjY, distance.get(point.x * m + point.y) + 1);
                 queue.offer(new Point(adjX, adjY));
             }

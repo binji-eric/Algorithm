@@ -1,4 +1,11 @@
 //https://www.jiuzhang.com/solutions/zombie-in-matrix/
+
+/**
+ * Given a 2D grid, each cell is either a wall 2, a zombie 1 or people 0 
+ * (the number zero, one, two).Zombies can turn the nearest people(up/down/left/right) 
+ * into zombies every day, but can not through wall. How long will it take to turn all people into zombies?
+ * Return -1 if can not turn all people into zombies.
+ */
 class Coordinate {
     int x, y;
     public Coordinate(int x, int y) {
@@ -48,8 +55,9 @@ public class Solution {
         // bfs
         int days = 0;
         while (!queue.isEmpty()) {
+            // days相当于感染的第几圈
             days++;
-            // 这一天中所有zombie都要遍历
+            // 这一队列中所有zombie都要遍历，记录当前队列的人数
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 Coordinate zb = queue.poll();
