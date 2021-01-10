@@ -1,3 +1,6 @@
+// Given a set of distinct integers, 
+// return all possible subsets.
+
 public class Solution {
     /**
      * @param nums: A set of numbers

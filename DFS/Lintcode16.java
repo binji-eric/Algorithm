@@ -1,3 +1,6 @@
+// Given a list of numbers with duplicate number in it. 
+// Find all unique permutations.
+
 public class Solution {
     /*
      * @param :  A list of integers
@@ -28,6 +31,9 @@ public class Solution {
             if (visited[i]) {
                 continue;
             }
+            // main difference compared to Lintcode15 PermuteI
+            // when two elements are same, it promises that 
+            // we cannot skip the previous to get next one
             if (i > 0 && nums[i] == nums[i - 1] && !visited[i - 1]) {
                 continue;
             }

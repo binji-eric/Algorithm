@@ -1,3 +1,7 @@
+// Given a set of candidtate numbers candidates and a target number target. 
+// Find all unique combinations in candidates where the numbers sums to target.
+// The same repeated number may be chosen from candidates unlimited number of times.
+
 public class Solution {
     /**
      * @param candidates: A list of integers
@@ -29,7 +33,8 @@ public class Solution {
         }
         // 递归
         for(int i = startIndex; i < candidates.length; i++) {
-            // skip duplicate candidate
+            // skip duplicate candidate, 每个点可以被多次使用，
+            // 这点通过startIndex = i实现的，所以原来candidats中的重复需要去除
             if(i != 0 && candidates[i] == candidates[i-1]) {
                 continue;
             }

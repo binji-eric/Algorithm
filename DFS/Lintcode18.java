@@ -22,7 +22,9 @@ public class Solution {
         // key2 直接加入，[]也是其中一个子集，new ArrayList<>()进行深拷贝
         results.add(new ArrayList<Integer>(temp));
         for(int i = startIndex; i < nums.length; i++) {
-            // key3 避免重复，i > startIndex 保证非起点状态时的相同, nums[i] == nums[i-1]相同的情况
+            // key3 避免重复，i > startIndex 保证非起点状态时的相同, 
+            // nums[i] == nums[i-1]相同的情况
+            // 因为nums[i] == nums[i-1] && i = startIndex之前已经遍历过，并且放在res中
             if(i > startIndex && nums[i] == nums[i-1]) {
                 continue;
             }
