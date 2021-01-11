@@ -7,6 +7,7 @@ class Cell {
     }
 }
 
+// 时间复杂度是O((mn)log(m+n))
 public class Solution {
     /**
      * @param heights: a matrix of integers
@@ -30,6 +31,7 @@ public class Solution {
             }
         });
         boolean[][] visited = new boolean[m][n];
+        // put cells at the edge into the priorityqueue
         for(int i = 0; i < m; i++) {
             pq.offer(new Cell(i, 0, heights[i][0]));
             pq.offer(new Cell(i, n-1, heights[i][n-1]));
