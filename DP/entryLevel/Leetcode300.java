@@ -25,12 +25,17 @@ class Solution {
         int[] dp = new int[size];
         int len = 0;
         for(int num: nums) {
+            // binarySearch(object[ ], int fromIndex, int endIndex, object key);
+            // [1] 搜索值不是数组元素，且在数组范围内，从1开始计数，得“ - 插入点索引值”；
+            // [2] 搜索值是数组元素，从0开始计数，得搜索值的索引值；
+            // [3] 搜索值不是数组元素，且大于数组内元素，索引值为 – (length + 1);
+            // [4] 搜索值不是数组元素，且小于数组内元素，索引值为 – 1。
             int i = Arrays.binarySearch(dp, 0, len, num);
             if(i < 0) {
                 i = -(i+1);
             }
-            // 在这个过程中，插入元素如果中间，是取代。这样中间元素会减小，为以后插入延长提供机会
-            // 插入最后面，是增加。
+            // 在这个过程中，插入元素如果中间，是取代。这样中间元素会减小，为以后插入延长提供机会， LIS不变
+            // 插入最后面，是增加，这时LIS会变大。
             dp[i] = num;
             if(i == len) {
                 len++;
