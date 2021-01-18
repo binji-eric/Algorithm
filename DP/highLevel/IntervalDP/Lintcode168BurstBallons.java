@@ -28,6 +28,7 @@ public int maxCoins(int[] nums) {
     for(int i = 1; i <= len; i++) {
         newNums[i] = nums[i-1];
     } 
+    // 两端的气球设为1，有利于处理边界问题
     newNums[0] = 1;
     newNums[len+1] = 1;
     return search(newNums, 1, len, dp, visited);
