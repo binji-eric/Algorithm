@@ -4,6 +4,7 @@ public int MinAdjustmentCost(List<Integer> A, int target) {
         return 0;
     }
     int size = A.size();
+    // f[i][v] 前i个数，第i个数调整为v，满足相邻两数<=target，所需要的最小代价
     int[][] dp = new int[size][101];
     for(int i = 0; i <= 100; i++) {
         dp[0][i] = Math.abs(A.get(0) - i);;
