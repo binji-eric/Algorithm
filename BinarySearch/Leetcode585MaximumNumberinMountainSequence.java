@@ -1,3 +1,6 @@
+// Given a mountain sequence of n integers which increase firstly and then decrease, 
+// find the mountain top.
+
 public int mountainSequence(int[] nums) {
     // write your code here
     if(nums == null || nums.length == 0) {
@@ -10,6 +13,7 @@ public int mountainSequence(int[] nums) {
     int left = 0, right = nums.length - 1;
     while(left + 1 < right) {
         int mid = left + (right - left)/2;
+        // 判断走势
         if(nums[mid+1] > nums[mid]) {
             left = mid + 1;
         } else {

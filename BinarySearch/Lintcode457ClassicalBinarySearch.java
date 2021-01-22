@@ -1,3 +1,6 @@
+// Find any position of a target number in a sorted array. 
+// Return -1 if target does not exist.
+
 public int findPosition(int[] nums, int target) {
     // write your code here
     if(nums == null || nums.length == 0) {
