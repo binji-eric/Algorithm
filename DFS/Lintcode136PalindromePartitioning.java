@@ -1,3 +1,9 @@
+// Given a string s. Partition s 
+// such that every substring in the partition is a palindrome.
+
+// Return all possible palindrome partitioning of s.
+
+
 public class Solution {
     /*
      * @param s: A string
@@ -25,6 +31,7 @@ public class Solution {
             }
             temp.add(newStr);
             dfs(s, i+1, temp, res);
+            // 删除刚刚的string
             temp.remove(temp.size() - 1);
         }
     }

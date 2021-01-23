@@ -1,3 +1,19 @@
+// Given a collection of integers that might contain duplicates, nums, 
+// return all possible subsets (the power set).
+
+
+// Input: [1,2,2]
+// Output:
+// [
+//   [2],
+//   [1],
+//   [1,2,2],
+//   [2,2],
+//   [1,2],
+//   []
+// ]
+
+
 public class Solution {
     /**
      * @param nums: A set of numbers.
@@ -9,7 +25,7 @@ public class Solution {
         if(nums == null) {
             return results;
         }
-        // key1 需要排序
+        // key1 需要排序，这样使得相同的内容相邻
         Arrays.sort(nums);
         helper(nums, 0, new ArrayList<Integer>(), results);
         return results;

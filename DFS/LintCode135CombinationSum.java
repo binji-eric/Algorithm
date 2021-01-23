@@ -33,8 +33,8 @@ public class Solution {
         }
         // 递归
         for(int i = startIndex; i < candidates.length; i++) {
-            // skip duplicate candidate, 每个点可以被多次使用，
-            // 这点通过startIndex = i实现的，所以原来candidats中的重复需要去除
+            // 每个点可以被多次使用，这点通过startIndex = i实现的
+            // 所以原来candidats中的重复需要去除
             if(i != 0 && candidates[i] == candidates[i-1]) {
                 continue;
             }
