@@ -7,6 +7,14 @@
  * };
  */
 
+ /**
+  * 
+    Given an directed graph, a topological order of the graph nodes is defined as follow:
+    For each directed edge A -> B in graph, A must before B in the order list.
+    The first node in the order can be any node in the graph with no nodes direct to it.
+    Find any topological order for the given graph.
+*/
+
 public class Solution {
     /*
      * @param graph: A list of Directed graph node
@@ -20,6 +28,7 @@ public class Solution {
         HashMap<DirectedGraphNode, Integer> map = new HashMap<>();
         // get indegree of graph
         getInDegree(graph, map);
+
         ArrayList<DirectedGraphNode> startNodes = getStartNodes(map);
         // get topological sort order by bfs
         ArrayList<DirectedGraphNode> order = bfs(startNodes, map);
@@ -50,6 +59,7 @@ public class Solution {
     
     private ArrayList<DirectedGraphNode> bfs(ArrayList<DirectedGraphNode> startNodes,
     HashMap<DirectedGraphNode, Integer> map) {
+        
         Queue<DirectedGraphNode> que = new LinkedList<DirectedGraphNode>();
         ArrayList<DirectedGraphNode> res = new ArrayList<>();
         for(DirectedGraphNode startNode: startNodes) {

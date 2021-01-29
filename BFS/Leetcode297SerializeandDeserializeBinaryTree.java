@@ -51,9 +51,11 @@ public class Codec {
             return null;
         }
         List<TreeNode> list = new ArrayList<TreeNode>();
+        // 去除两端的{}， 然后根据逗号来分割
         String[] arr = data.substring(1, data.length()-1).split(",");
         TreeNode root = new TreeNode(Integer.parseInt(arr[0]));
         list.add(root);
+        // isLeft控制左右，index找到父节点
         boolean isLeft = true;
         int index  = 0;
         for(int i = 1; i < arr.length; i++) {

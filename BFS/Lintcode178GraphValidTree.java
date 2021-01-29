@@ -1,3 +1,10 @@
+/**
+ * Given n nodes labeled from 0 to n - 1 and a list of undirected edges 
+ * (each edge is a pair of nodes), 
+ * write a function to check whether these edges make up a valid tree.
+ */
+
+
 public class Solution {
     /**
      * @param n: An integer
@@ -20,6 +27,8 @@ public class Solution {
         Queue<Integer> que = new LinkedList<Integer>();
         que.offer(0);
         visited.add(0);
+
+        // constructor map
         for(int[] edge : edges) {
             if(!map.containsKey(edge[0])) {
                 map.put(edge[0], new HashSet<Integer>());
@@ -30,6 +39,8 @@ public class Solution {
             }
              map.get(edge[1]).add(edge[0]);
         }
+
+        // iterate the whole map and add visited node to visited
         while(!que.isEmpty()) {
             int value = que.poll();
             for(int temp : map.get(value)) {
