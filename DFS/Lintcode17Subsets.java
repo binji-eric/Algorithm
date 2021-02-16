@@ -39,6 +39,7 @@ public class Solution {
                         List<List<Integer>> res) {
         // 遇到任何的中间结果，立即加入res
         res.add(new ArrayList<Integer>(temp));
+        // 从startIndex开始计数, 避免重复，保证起始节点不相同
         for(int i = startIndex; i < nums.length; i++) {
             temp.add(nums[i]);
             helper(nums, i + 1, temp, res);

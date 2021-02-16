@@ -26,9 +26,7 @@
         if (nums == null) {
             return results;
         }
-        
         dfs(nums, new boolean[nums.length], new ArrayList<Integer>(), results);
-        
         return results;
     }
     
@@ -44,7 +42,7 @@
         }
         
         for (int i = 0; i < nums.length; i++) {
-            // visited and skip
+            // visited, then skip
             if (visited[i]) {
                 continue;
             }

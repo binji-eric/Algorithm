@@ -34,6 +34,7 @@ class Solution {
         que.add(node);
         map.put(node, new Node(node.val));
         
+        // 初始化节点，并且将新旧节点建立映射
         for(int i = 0; i < que.size(); i++) {
             Node temp = que.get(i);
             for(Node neighbor: temp.neighbors) {

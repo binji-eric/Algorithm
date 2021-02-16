@@ -31,6 +31,7 @@ class Solution {
         while(!queue.isEmpty()) {
             List<Integer> levelList = new ArrayList<>();
             int size = queue.size();
+            // 通过size控制本轮的次数
             while(size > 0) {
                 TreeNode temp = queue.poll();
                 levelList.add(temp.val);

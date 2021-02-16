@@ -16,6 +16,7 @@ public class Codec {
         }
         List<TreeNode> list = new ArrayList<TreeNode>();
         list.add(root);
+        // BFS用来层序遍历的过程
         for(int i = 0; i < list.size(); i++) {
             TreeNode temp = list.get(i);
             if(temp == null) {
@@ -25,7 +26,7 @@ public class Codec {
             list.add(temp.left);
             list.add(temp.right);
         }
-        // remove the null value at the tail
+        // remove the null value at the tail， 将尾部的null清空
         while(list.get(list.size() - 1) == null) {
             list.remove(list.size() - 1);
         }
@@ -42,6 +43,7 @@ public class Codec {
             }
         }
         str.append("}");
+        // 构造成{a, b, c, #}类型结构的字符串
         return str.toString();
     }
 
@@ -68,6 +70,7 @@ public class Codec {
                 }
                 list.add(temp);
             }
+            // 每当isLeft为false时，index++，从而保障index是父节点，也就是isLeft经历了左右，index++
             if(!isLeft) {
                 index++;
             }

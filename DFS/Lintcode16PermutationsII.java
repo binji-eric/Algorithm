@@ -21,6 +21,7 @@ public class Solution {
             return results;
         }
         
+        // 必须排序，使得相同的元素挨在一起
         Arrays.sort(nums);
         dfs(nums, new boolean[nums.length], new ArrayList<Integer>(), results);
         

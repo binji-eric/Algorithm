@@ -24,6 +24,7 @@ class Solution {
         for(int i = 0; i < grid.length; i++) {
             for(int j = 0; j < grid[i].length; j++) {
                 if(grid[i][j] == '1') {
+                    // 使用bfs的方法标记，将1所连接的所有1翻转为0
                     markByBfs(grid, i, j);
                     count++;
                 }
@@ -39,11 +40,13 @@ class Solution {
         Queue<Coordinate> que = new LinkedList<>();
         que.offer(new Coordinate(i, j));
         grid[i][j] = '0';
+        // 将一个岛屿上的所有1翻转成0
         while(!que.isEmpty()) {
             Coordinate temp = que.poll();
             for(int k = 0; k < 4; k++) {
                 Coordinate newNode = new Coordinate(temp.x + directionX[k], 
                                                     temp.y + directionY[k]);
+                // 检查合法性                                
                 if(isValid(grid, newNode.x, newNode.y) && grid[newNode.x][newNode.y] == '1') {
                     grid[newNode.x][newNode.y] = '0';
                     que.offer(newNode);
