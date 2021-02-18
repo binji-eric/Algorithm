@@ -53,6 +53,7 @@ class Solution {
         return -1;
     }
     
+    // 获得下一个可能锁密码排列
     private List<String> getNextString(String start) {
         List<String> res = new ArrayList<String>();
         for(int i = 0; i < start.length(); i++) {
@@ -69,7 +70,8 @@ class Solution {
         }
         return res;
     }
-    
+
+    // string -> char[] -> string
     private String getNewString(String start, int index, char num) {
         char[] arr = start.toCharArray();
         arr[index] = num;

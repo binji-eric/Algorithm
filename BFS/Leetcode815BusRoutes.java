@@ -6,6 +6,7 @@ class Solution {
         if(routes == null || routes.length == 0 || routes[0] == null) {
             return -1;
         }
+        // map中存储着指定车站，由哪些车会经过 bus station -> {bus1, bus2, bus3}
         HashMap<Integer, List<Integer>> map = new HashMap<>();
         for(int i = 0; i < routes.length; i++) {
             for(int j = 0; j < routes[i].length; j++) {
@@ -27,6 +28,7 @@ class Solution {
         que.offer(source);
         while(!que.isEmpty()) {
             int size = que.size();
+            // size为同一step下，车站的选择性
             while(size> 0) {
                 int busStation = que.poll();
                 // find the target, return

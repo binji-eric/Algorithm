@@ -9,15 +9,17 @@ class Solution {
 			return matrix;
 		int m = matrix.length, n = matrix[0].length;
 		Queue<int[]> q = new LinkedList<>();
-		for (int i = 0; i < m; i++)
+		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
 				// 把0元素加入队列中，以备波及影响周围元素
-				if (matrix[i][j] == 0)
+				if (matrix[i][j] == 0) {
 					q.offer(new int[] { i, j });
-				else
+				} else {
 					// 设为最大值，方便求0元素影响值
 					matrix[i][j] = Integer.MAX_VALUE;
+				}
 			}
+		}
 		// 上下左右
 		int[][] dirs = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
 		while (!q.isEmpty()) {
@@ -30,9 +32,10 @@ class Solution {
 				// 上下左右取到的值
 				int value = matrix[row][col];
 				int tmp = matrix[cell[0]][cell[1]] + 1;
-				// 如果value小，那说明之前已经更新过，不是max
+				// 如果value < tmp，那说明通过cell的路径并不可行，比原来的还大，应该抛弃
 				if (value <= tmp)
 					continue;
+				// matrix新节点被更新
 				q.offer(new int[] { row, col });
 				matrix[row][col] = tmp;
 			}
