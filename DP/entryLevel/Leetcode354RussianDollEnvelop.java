@@ -1,3 +1,9 @@
+// One envelope can fit into another if and only if 
+// both the width and height of one envelope is greater than 
+// the width and height of the other envelope.
+
+// What is the maximum number of envelopes can you Russian doll? 
+
 class Solution {
     public int maxEnvelopes(int[][] envelopes) {
         if(envelopes == null || envelopes.length == 0 

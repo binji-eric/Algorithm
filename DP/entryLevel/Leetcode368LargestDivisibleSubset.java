@@ -8,6 +8,7 @@ class Solution {
         Arrays.sort(nums);
         HashMap<Integer, List<Integer>> map = new HashMap<>();
         int len = nums.length;
+        // dp[num] 存储的是 满足num divisble的个数
         int[] dp = new int[len];
         for(int temp: nums) {
             List<Integer> list = new ArrayList<Integer>();
@@ -20,6 +21,7 @@ class Solution {
             int index = -1, max = Integer.MIN_VALUE;
             for(int j = 0; j < i; j++) {
                 if(nums[i]%nums[j] == 0) {
+                    // 找到最大的，记录index
                     if(max < dp[j] + 1) {
                         max = dp[j] + 1;
                         index = j;

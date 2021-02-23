@@ -2,6 +2,7 @@
 // Given array A representing the size of each item and 
 // array V representing the value of each item.
 
+// 有限背包，求装的最大价值
 public int backPackII(int m, int[] A, int[] V) {
     // write your code here
     if(A == null || V == null || A.length == 0 || A.length != V.length) {

@@ -1,3 +1,9 @@
+// Given an integer array, adjust each integers so that 
+// the difference of every adjacent integers are not greater than a given number target.
+
+// If the array before adjustment is A, the array after adjustment is B, 
+// you should minimize the sum of |A[i]-B[i]|
+
 public int MinAdjustmentCost(List<Integer> A, int target) {
     // write your code here
     if(A == null || A.size() == 0) {
@@ -9,6 +15,7 @@ public int MinAdjustmentCost(List<Integer> A, int target) {
     for(int i = 0; i <= 100; i++) {
         dp[0][i] = Math.abs(A.get(0) - i);;
     }
+    // 初始化为最大值
     for(int i = 1; i < size; i++) {
         for(int j = 0; j <= 100; j++) {
             dp[i][j] = Integer.MAX_VALUE;

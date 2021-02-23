@@ -4,6 +4,7 @@
 // Find the number of ways to fill the backpack.
 // Each item may be chosen unlimited number of times
 
+// 无限背包，求装满背包的方式
 public int backPackIV(int[] nums, int target) {
     // write your code here
     if(nums == null || nums.length == 0) {
@@ -11,6 +12,7 @@ public int backPackIV(int[] nums, int target) {
     }
     int len = nums.length;
     int[][] dp = new int[len+1][target+1];
+    // target == 0, 装满背包的方式有1种，也就是什么也不装
     dp[0][0] = 1;
     for(int i = 1; i <= len; i++) {
         for(int j = 0; j <= target; j++) {
@@ -18,7 +20,7 @@ public int backPackIV(int[] nums, int target) {
             // k = 0时，dp[i][j] = dp[i-1][j];
             // k = 1+时，dp[i][j] += dp[i-1][j-total] total = nums[i-1]*k
             while(k*nums[i-1] <= j) {
-                dp[i][j] += dp[i-1][j-nums[i-1]*k];
+                dp[i][j] += dp[i-1][j - (nums[i-1]*k)];
                 k++;
             }
         }

@@ -1,3 +1,7 @@
+// Each house has a certain amount of money stashed, 
+// the only constraint stopping you from robbing each of them is that 
+// adjacent houses have security system 
+// 需要隔一偷一
 class Solution {
     // method1, traditional method
     public int rob(int[] nums) {

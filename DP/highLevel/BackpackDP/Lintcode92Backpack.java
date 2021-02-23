@@ -1,7 +1,7 @@
 // Given n items with size Ai, an integer m denotes the size of a backpack. 
 // How full you can fill this backpack?
 
-
+// 有限背包，求能装的最大值
 public int backPack(int m, int[] A) {
     // write your code here 
     // if(A == null || A.length == 0) {

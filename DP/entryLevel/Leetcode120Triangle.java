@@ -1,4 +1,5 @@
 // dp (from top to bottom), time complexity is O(n^2)
+// Given a triangle array, return the minimum path sum from top to bottom.
 class Solution {
     public int minimumTotal(List<List<Integer>> triangle) {
        int m = triangle.size(), n = triangle.get(m-1).size();
