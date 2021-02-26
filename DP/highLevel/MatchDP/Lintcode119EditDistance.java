@@ -1,3 +1,12 @@
+// Given two words word1 and word2, find the minimum number of steps 
+// required to convert word1 to word2. (each operation is counted as 1 step.)
+
+// You have the following 3 operations permitted on a word:
+
+// Insert a character
+// Delete a character
+// Replace a character
+
 public int minDistance(String word1, String word2) {
     // write your code here
     if(word1 == null || word2 == null) {
@@ -5,9 +14,11 @@ public int minDistance(String word1, String word2) {
     }
     int lenA = word1.length(), lenB = word2.length();
     int[][] dp = new int[lenA+1][lenB+1];
+    // 如果word2长度是0，从word1到word2需要的距离
     for(int i = 0; i <= lenA; i++) {
         dp[i][0] = i;
     }
+    // 如果word1长度是0，从word2到word1需要的距离
     for(int j = 0; j <= lenB; j++) {
         dp[0][j] = j;
     }
