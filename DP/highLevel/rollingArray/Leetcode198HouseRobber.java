@@ -28,12 +28,11 @@ class Solution {
         int len = nums.length;
         int[] dp = new int[3];
         dp[0] = nums[0];
-        for(int i = 1; i < len; i++) {
-            if(i >= 2) {
-                dp[i%3] = Math.max(dp[(i-1)%3], dp[(i-2)%3] + nums[i]);
-            } else {
-                dp[i%3] = Math.max(dp[(i-1)%3], nums[i]);
-            }
+        if(len >= 2) {
+            dp[1] = Math.max(nums[0], nums[1]);
+        }
+        for(int i = 2; i < len; i++) {
+            dp[i%3] = Math.max(dp[(i-1)%3], dp[(i-2)%3] + nums[i]);
         }
         return dp[(len-1)%3];
     }

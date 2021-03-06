@@ -1,23 +1,51 @@
 // All houses at this place are arranged in a circle.
 class Solution {
     public int rob(int[] nums) {
-        int size = nums.length;
-        if (size == 0) {
+        if(nums == null || nums.length == 0)
             return 0;
-        }
-        if (size == 1) {
+        if(nums.length == 1)
             return nums[0];
-        }
-        int[] L = new int[3];
-        int[] R = new int[3];
-        // 采用分裂法，分成两组，一组偷窃的范围是0 ~ size-2, 第二组偷窃的范围是 1 ~ size-1
-        L[1] = nums[0];
-        R[1] = nums[1];
-        for (int i = 2;i < size;i++) {
-            //递推公式，注意nums中数的顺序先后
-            L[i%3] = Math.max(L[(i - 2)%3] + nums[i - 1], L[(i - 1)%3]);
-            R[i%3] = Math.max(R[(i - 2)%3] + nums[i],  R[(i - 1)%3]);
-        }
-        return Math.max(L[(size - 1)%3],R[(size - 1)%3]);//取较大值
+        else if(nums.length == 2)
+            return Math.max(nums[0], nums[1]);
+        // 只是打劫从0~len-2
+        int[] memo = new int[3];
+        memo[0] = nums[0];
+        memo[1] = Math.max(nums[0], nums[1]);
+        for(int i =2; i< nums.length -1; i++)
+            memo[i%3] = Math.max(memo[(i-2)%3]+nums[i], memo[(i-1)%3]);
+        // 只是打劫从1~len-1
+        int[] memo1 = new int[3];
+        memo1[1] = nums[1];
+        memo1[2] = Math.max(nums[1], nums[2]);
+        for(int i=3; i<nums.length; i++)
+            memo1[i%3] = Math.max(memo1[(i-2)%3]+nums[i], memo1[(i-1)%3]);
+        
+        return Math.max(memo[(nums.length-2)%3],memo1[(nums.length-1)%3]);
     }
+}
+
+
+// 老方法，浪费存储
+public int rob(int[] nums) {
+    if(nums == null || nums.length == 0)
+        return 0;
+    if(nums.length == 1)
+        return nums[0];
+    else if(nums.length == 2)
+        return Math.max(nums[0], nums[1]);
+    // 只是打劫从0~len-2
+    int[] memo = new int[nums.length];
+    memo[0] = nums[0];
+    memo[1] = Math.max(nums[0], nums[1]);
+    for(int i =2; i< nums.length -1; i++)
+        memo[i] = Math.max(memo[i-2]+nums[i], memo[i-1]);
+
+     // 只是打劫从1~len-1
+    int[] memo1 = new int[nums.length];
+    memo1[1] = nums[1];
+    memo1[2] = Math.max(nums[1], nums[2]);
+    for(int i=3; i<nums.length; i++)
+        memo1[i] = Math.max(memo1[i-2]+nums[i], memo1[i-1]);
+    
+    return Math.max(memo[nums.length-2],memo1[nums.length-1]);
 }
