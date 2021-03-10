@@ -1,5 +1,5 @@
 class Solution {
-    /*
+    
     // method1 quick sort, time complexity is O(n) ~ O(n^2)
     public int findKthLargest(int[] nums, int k) {
         if(k < 0 || k > nums.length) {
@@ -40,7 +40,7 @@ class Solution {
         nums[index1] = nums[index2];
         nums[index2] = temp;
     }
-    */
+    
     // method2 PriorityQueue, time complexity is O(nlogk)
      public int findKthLargest(int[] nums, int k) {
         if(k < 0 || k > nums.length) {

@@ -17,6 +17,8 @@ class Solution {
         dummyHead.next = head;
         
         ListNode pre = dummyHead;
+        // 每次返回的pre是K Group前面的第一个元素
+        // 对于head来说，pre是dummyHead
         while(pre != null) {
             pre = reverse(pre, k);
         }
@@ -37,7 +39,7 @@ class Solution {
         }
         ListNode nk = cur, nkplus = cur.next;
         
-        // reverse
+        // reverse, 这里是普通反转链表的部分
         ListNode pre = head;
         cur = head.next;
         while(cur != nkplus) {
