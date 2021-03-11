@@ -1,7 +1,8 @@
 public List<Integer> rightSideView(TreeNode root) {
-    if(root == null) return Collections.emptyList();
-   
+       
     List<Integer> result = new ArrayList();
+    if(root == null) 
+        return result;
     Queue<TreeNode> queue = new LinkedList();
     queue.add(root);
     //int level = 0;
