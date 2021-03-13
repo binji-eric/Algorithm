@@ -7,7 +7,7 @@ public class Leetcode92ReverseLinkedListII {
         } 
         ListNode dummyHead = new ListNode(-1);
         dummyHead.next = head;
-        int distance = right - left;
+        int distance = right - left; // 计算出fast走出的距离
         ListNode fast = dummyHead, slow = dummyHead, prev = dummyHead;
         // let the fast point go first
         while(fast != null && distance > 0) {
@@ -16,7 +16,9 @@ public class Leetcode92ReverseLinkedListII {
         }
         // dummyHead -> head->....-> prev -> slow->....fast -> next ...
          // dummyHead -> head->....-> prev -> fast->....slow -> next ...
-        while(left > 0) {
+  
+         // prev, slow, fast一起运动
+         while(left > 0) {
             prev = slow;
             slow = slow.next;
             fast = fast.next;
