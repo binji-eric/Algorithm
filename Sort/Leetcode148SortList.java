@@ -2,12 +2,15 @@ public ListNode sortList(ListNode head) {
     if(head == null || head.next == null) {
         return head;
     }
+    
    ListNode prev = head, slow = head, fast = head;
+    // slow为第二段链表的起点
     while(fast!= null && fast.next != null) {
         prev = slow;
         slow = slow.next;
         fast = fast.next.next;
     }
+    // 断掉两段链表之间的关系
     prev.next = null;
     return mergeSort(sortList(head), sortList(slow));
 }
