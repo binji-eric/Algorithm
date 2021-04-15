@@ -11,13 +11,15 @@ public boolean areSentencesSimilarTwo(String[] words1, String[] words2, String[]
     }
     int n = words1.length;
     for(int i=0; i<n; i++){
-        if (!words1[i].equals(words2[i]) && !find(words1[i], map).equals(find(words2[i], map))) return false;
+        if (!words1[i].equals(words2[i]) && !find(words1[i], map).equals(find(words2[i], map))) 
+            return false;
     }
     return true;
 }
  
 private String find(String word, Map<String, String> map){
-    if(!map.containsKey(word)) return word;
+    if(!map.containsKey(word)) 
+        return word;
     String str = word;
     // 直到祖辈节点，因为祖辈不存在于map中
     while(map.containsKey(str)){

@@ -12,10 +12,10 @@ public class Trie {
         }
     }
     private TrieNode root;
+
     public Trie() {
         root = new TrieNode();
     }
-    
 
     /*
      * @param word: a word
@@ -52,7 +52,7 @@ public class Trie {
         if(res == null) {
             return false;
         }
-        return res.isWord;
+        return res.isWord; // isWord说明是完整单词，否则只是前缀
     }
 
     /*
@@ -71,15 +71,13 @@ public class Trie {
     private TrieNode searchPrefixNode(String word) {
         char[] wordArr = word.toCharArray();
         TrieNode cur = root;
-        HashMap<Character, TrieNode> curChildren = cur.children;
         for(int i = 0; i < wordArr.length; i++) {
             char temp = wordArr[i];
-            if(curChildren.containsKey(temp)) {
-                cur = curChildren.get(temp);
+            if(cur.children.containsKey(temp)) {
+                cur = cur.children.get(temp);
             } else {
                 return null;
             }
-            curChildren = cur.children;
         }
         return cur;
     }

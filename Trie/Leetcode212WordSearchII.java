@@ -1,8 +1,11 @@
+// Given an m x n board of characters and a list of strings words, 
+// return all words on the board.
+
 class Solution {
     
     class TrieNode{
-        String s;
-        boolean isString;
+        String s;         // 对应的整个字符串
+        boolean isString; // 是否是字符串的结尾
         HashMap<Character, TrieNode> subtree;
         public TrieNode(){
             s = "";
@@ -29,6 +32,7 @@ class Solution {
             cur.s = str;
         }
         
+        // query的过程和insert的过程基本类似
         public boolean query(String str){
             TrieNode cur = root;
             for(int i = 0; i< str.length(); i++){
@@ -43,8 +47,9 @@ class Solution {
     
     
     
-    
+    // 上下左右四个方向
     private int[][] dirs = new int[][]{{-1,0}, {1,0},{0,-1},{0,1}};
+
     public void search(List<String> res, TrieNode node, char[][] board, int x, int y){
         if(node.isString){
             if(!res.contains(node.s))
@@ -55,7 +60,7 @@ class Solution {
         if(node.subtree.containsKey(board[x][y])){
             for(int i =0; i<dirs.length; i++){
                 char now = board[x][y];
-                // 防止回到本轮中刚刚遍历的节点
+                // 防止回到本轮中刚刚遍历的节点, backtracking
                 board[x][y] = '#';
                 search(res, node.subtree.get(now), board, x+dirs[i][0], y+dirs[i][1]);
                 board[x][y] = now;
@@ -64,7 +69,7 @@ class Solution {
     }
     
     
-    
+    // 主函数入口
     public List<String> findWords(char[][] board, String[] words) {
         List<String> res = new ArrayList<String>();
         TrieTree tree = new TrieTree(new TrieNode());
@@ -74,6 +79,7 @@ class Solution {
         }
         for(int i = 0; i < board.length; i++){
             for(int j = 0; j < board[0].length; j++){
+                // 以每个点为启动扫描
                 search(res, tree.root, board, i, j);
             }
         }
